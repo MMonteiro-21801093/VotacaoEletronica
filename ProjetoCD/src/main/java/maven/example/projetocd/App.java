@@ -6,7 +6,7 @@ import com.cloudant.client.api.ClientBuilder;
 import com.cloudant.client.api.CloudantClient;
 import com.cloudant.client.api.Database;
 import java.util.List;
- 
+
 /**
  * Hello world!
  *
