@@ -103,7 +103,7 @@ public static String removerUtilizador(String user_id) throws Exception{
 		return "OK";
 }
 
-public static List<String> itemGanhador() throws Exception{
+public static List<ResultadoEleicao> itemGanhador() throws Exception{
 	connectDatabase();
 	 List<VoterDocument> response = db.getAllDocsRequestBuilder().includeDocs(true).build().getResponse().getDocsAs(VoterDocument.class);
 	   List<VoterDocument> utilizadores =
@@ -114,20 +114,160 @@ public static List<String> itemGanhador() throws Exception{
 	   ArrayList<ResultadoEleicao> resultado = new ArrayList<>();
 	   
 	   long antMan = response.stream()
-               .filter((c) -> c.getItemVoto().equals("Ant-Man"))
+               .filter((c) -> c.getItemVoto().equals("1"))
                .collect(Collectors.counting());
 	   
-	   ResultadoEleicao resultadoEleicao = new ResultadoEleicao("Ant-Man", antMan);
+	   ItemDocument  item = db.find(ItemDocument.class,"1");
+	   
+	   ResultadoEleicao resultadoEleicao = new ResultadoEleicao(item.getNome(), antMan);
 	   resultado.add(resultadoEleicao);
 	   
 	   long avengers = response.stream()
-               .filter((c) -> c.getItemVoto().equals("Avengers - Age of Ultron"))
+               .filter((c) -> c.getItemVoto().equals("2"))
                .collect(Collectors.counting());
 	   
-	   resultadoEleicao = new ResultadoEleicao("Avengers - Age of Ultron", avengers);
+	   item = db.find(ItemDocument.class,"2");
+	   
+	   resultadoEleicao = new ResultadoEleicao(item.getNome(), avengers);
 	   resultado.add(resultadoEleicao);
 	   
-	return null;
+	   long capitanAmerica = response.stream()
+               .filter((c) -> c.getItemVoto().equals("3"))
+               .collect(Collectors.counting());
+	   
+	   item = db.find(ItemDocument.class,"3");
+	   
+	   resultadoEleicao = new ResultadoEleicao(item.getNome(), capitanAmerica);
+	   resultado.add(resultadoEleicao);
+	   
+	   long guardiansGalaxy = response.stream()
+               .filter((c) -> c.getItemVoto().equals("4"))
+               .collect(Collectors.counting());
+	   
+	   item = db.find(ItemDocument.class,"4");
+	   
+	   resultadoEleicao = new ResultadoEleicao(item.getNome(), guardiansGalaxy);
+	   resultado.add(resultadoEleicao);
+	   
+	   long ironMan = response.stream()
+               .filter((c) -> c.getItemVoto().equals("5"))
+               .collect(Collectors.counting());
+	   
+	   item = db.find(ItemDocument.class,"5");
+	   
+	   resultadoEleicao = new ResultadoEleicao(item.getNome(), ironMan);
+	   resultado.add(resultadoEleicao);
+	   
+	   long darkWorld = response.stream()
+               .filter((c) -> c.getItemVoto().equals("6"))
+               .collect(Collectors.counting());
+	   
+	   item = db.find(ItemDocument.class,"6");
+	   
+	   resultadoEleicao = new ResultadoEleicao(item.getNome(), darkWorld);
+	   resultado.add(resultadoEleicao);
+	   
+	   
+	   List<ResultadoEleicao> listaResultadoEleicao =
+			   resultado.stream()
+                       .sorted((c1, c2) -> c1.getVotos() - c2.getVotos())
+                       .collect(toList());
+	   
+	return listaResultadoEleicao;
+}
+
+public static String obtemDescricaoItemVotado(String id)throws Exception {
+    connectDatabase();
+	ItemDocument item = db.find(ItemDocument.class,id);
+	return item.getNome();
+}
+
+public static String votarNoItemSelecionado(String item,String idVotante)throws Exception {
+	connectDatabase();
+	VoterDocument  votante = db.find(VoterDocument.class,idVotante);
+	votante.setItemVoto(item);;
+	com.cloudant.client.api.model.Response response = db.update(votante);
+	return "OK";
+	
+}
+
+public static List<ResultadoEleicao> listarResultadosVotacao() throws Exception {
+	connectDatabase();
+	 List<VoterDocument> response = db.getAllDocsRequestBuilder().includeDocs(true).build().getResponse().getDocsAs(VoterDocument.class);
+	   List<VoterDocument> utilizadores =
+	                    response.stream()
+	                    .filter((c) -> c.getTipo().equals("Votantes"))
+	                    .collect(toList());
+	
+	   ArrayList<ResultadoEleicao> resultado = new ArrayList<>();
+	   int quantidadeVotos = utilizadores.size();
+	   
+	   long antMan = response.stream()
+              .filter((c) -> c.getItemVoto().equals("1"))
+              .collect(Collectors.counting());
+	   
+	   ItemDocument  item = db.find(ItemDocument.class,"1");
+	   
+	   ResultadoEleicao resultadoEleicao = new ResultadoEleicao(item.getNome(), antMan);
+	   resultadoEleicao.calculaPercentagem(quantidadeVotos);
+	   resultado.add(resultadoEleicao);
+	   
+	   long avengers = response.stream()
+              .filter((c) -> c.getItemVoto().equals("2"))
+              .collect(Collectors.counting());
+	   
+	   item = db.find(ItemDocument.class,"2");
+	   
+	   resultadoEleicao = new ResultadoEleicao(item.getNome(), avengers);
+	   resultadoEleicao.calculaPercentagem(quantidadeVotos);
+	   resultado.add(resultadoEleicao);
+	   
+	   long capitanAmerica = response.stream()
+              .filter((c) -> c.getItemVoto().equals("3"))
+              .collect(Collectors.counting());
+	   
+	   item = db.find(ItemDocument.class,"3");
+	   
+	   resultadoEleicao = new ResultadoEleicao(item.getNome(), capitanAmerica);
+	   resultadoEleicao.calculaPercentagem(quantidadeVotos);
+	   resultado.add(resultadoEleicao);
+	   
+	   long guardiansGalaxy = response.stream()
+              .filter((c) -> c.getItemVoto().equals("4"))
+              .collect(Collectors.counting());
+	   
+	   item = db.find(ItemDocument.class,"4");
+	   
+	   resultadoEleicao = new ResultadoEleicao(item.getNome(), guardiansGalaxy);
+	   resultadoEleicao.calculaPercentagem(quantidadeVotos);
+	   resultado.add(resultadoEleicao);
+	   
+	   long ironMan = response.stream()
+              .filter((c) -> c.getItemVoto().equals("5"))
+              .collect(Collectors.counting());
+	   
+	   item = db.find(ItemDocument.class,"5");
+	   
+	   resultadoEleicao = new ResultadoEleicao(item.getNome(), ironMan);
+	   resultadoEleicao.calculaPercentagem(quantidadeVotos);
+	   resultado.add(resultadoEleicao);
+	   
+	   long darkWorld = response.stream()
+              .filter((c) -> c.getItemVoto().equals("6"))
+              .collect(Collectors.counting());
+	   
+	   item = db.find(ItemDocument.class,"6");
+	   
+	   resultadoEleicao = new ResultadoEleicao(item.getNome(), darkWorld);
+	   resultadoEleicao.calculaPercentagem(quantidadeVotos);
+	   resultado.add(resultadoEleicao);
+	   
+	   
+	   List<ResultadoEleicao> listaResultadoEleicao =
+			   resultado.stream()
+                      .sorted((c1, c2) -> c1.getVotos() - c2.getVotos())
+                      .collect(toList());
+	return listaResultadoEleicao;
 }
 
 }

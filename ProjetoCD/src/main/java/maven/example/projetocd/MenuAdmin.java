@@ -139,13 +139,17 @@ public class MenuAdmin {
 	}
 
 	private static void itemGanhador() throws Exception {
-		List<String> ganhador = DataBase.itemGanhador();
-	
+		List<ResultadoEleicao> ganhador = DataBase.itemGanhador();
+		int i = 1;
+	      for(ResultadoEleicao resultado:ganhador) {
+	    		 System.out.print(i+"º lugar "+ resultado.getNome() + "com "+ resultado.getVotos()+" votos" );
+	    		 i++;
+	      }
 	}
 
-	private static void listarResultadosVotacao() {
+	private static void listarResultadosVotacao() throws Exception{
 		
-		
+		 List<ResultadoEleicao> listaResultadoEleicao = DataBase.itemGanhador();
 	}
 
 	private static void numeroTotalVotos() throws Exception {	 
