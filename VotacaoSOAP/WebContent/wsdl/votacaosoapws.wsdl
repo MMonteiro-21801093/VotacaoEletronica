@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="VotacaoSoapWSService" targetNamespace="http://eletronica.votacao/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://eletronica.votacao/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+  <import namespace="http://eletronica.votacao/" schemaLocation="votacaosoapws_schema1.xsd"/>
+</schema>
+  </wsdl:types>
+  <wsdl:message name="itemGanhador">
+    <wsdl:part name="parameters" element="tns:itemGanhador">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Exception">
+    <wsdl:part name="Exception" element="tns:Exception">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listaItemsVotacaoResponse">
+    <wsdl:part name="parameters" element="tns:listaItemsVotacaoResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="associarUtilizador">
+    <wsdl:part name="parameters" element="tns:associarUtilizador">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listarResultadosVotacao">
+    <wsdl:part name="parameters" element="tns:listarResultadosVotacao">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtemDescricaoItemVotado">
+    <wsdl:part name="parameters" element="tns:obtemDescricaoItemVotado">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listaUtilizadoresSessaoResponse">
+    <wsdl:part name="parameters" element="tns:listaUtilizadoresSessaoResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="associarUtilizadorResponse">
+    <wsdl:part name="parameters" element="tns:associarUtilizadorResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="inicioDaVotacao">
+    <wsdl:part name="parameters" element="tns:inicioDaVotacao">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listarResultadosVotacaoResponse">
+    <wsdl:part name="parameters" element="tns:listarResultadosVotacaoResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="tempoRestanteSessaoResponse">
+    <wsdl:part name="parameters" element="tns:tempoRestanteSessaoResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listaItemsVotacao">
+    <wsdl:part name="parameters" element="tns:listaItemsVotacao">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="testeResponse">
+    <wsdl:part name="parameters" element="tns:testeResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="itemGanhadorResponse">
+    <wsdl:part name="parameters" element="tns:itemGanhadorResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="validaUtilizadorResponse">
+    <wsdl:part name="parameters" element="tns:validaUtilizadorResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listaUtilizadoresSessao">
+    <wsdl:part name="parameters" element="tns:listaUtilizadoresSessao">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listaUtilizadoresRegistadosResponse">
+    <wsdl:part name="parameters" element="tns:listaUtilizadoresRegistadosResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="numeroTotalVotos">
+    <wsdl:part name="parameters" element="tns:numeroTotalVotos">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removerUtilizador">
+    <wsdl:part name="parameters" element="tns:removerUtilizador">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="numeroTotalVotosResponse">
+    <wsdl:part name="parameters" element="tns:numeroTotalVotosResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="votarNoItemSelecionado">
+    <wsdl:part name="parameters" element="tns:votarNoItemSelecionado">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="teste">
+    <wsdl:part name="parameters" element="tns:teste">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="duracaoDataSessaoResponse">
+    <wsdl:part name="parameters" element="tns:duracaoDataSessaoResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="tempoRestanteSessao">
+    <wsdl:part name="parameters" element="tns:tempoRestanteSessao">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removerUtilizadorResponse">
+    <wsdl:part name="parameters" element="tns:removerUtilizadorResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtemDescricaoItemVotadoResponse">
+    <wsdl:part name="parameters" element="tns:obtemDescricaoItemVotadoResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="votarNoItemSelecionadoResponse">
+    <wsdl:part name="parameters" element="tns:votarNoItemSelecionadoResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="duracaoDataSessao">
+    <wsdl:part name="parameters" element="tns:duracaoDataSessao">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="inicioDaVotacaoResponse">
+    <wsdl:part name="parameters" element="tns:inicioDaVotacaoResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="validaUtilizador">
+    <wsdl:part name="parameters" element="tns:validaUtilizador">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listaUtilizadoresRegistados">
+    <wsdl:part name="parameters" element="tns:listaUtilizadoresRegistados">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="VotacaoSoapWS">
+    <wsdl:operation name="numeroTotalVotos">
+      <wsdl:input name="numeroTotalVotos" message="tns:numeroTotalVotos">
+    </wsdl:input>
+      <wsdl:output name="numeroTotalVotosResponse" message="tns:numeroTotalVotosResponse">
+    </wsdl:output>
+      <wsdl:fault name="Exception" message="tns:Exception">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="itemGanhador">
+      <wsdl:input name="itemGanhador" message="tns:itemGanhador">
+    </wsdl:input>
+      <wsdl:output name="itemGanhadorResponse" message="tns:itemGanhadorResponse">
+    </wsdl:output>
+      <wsdl:fault name="Exception" message="tns:Exception">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="removerUtilizador">
+      <wsdl:input name="removerUtilizador" message="tns:removerUtilizador">
+    </wsdl:input>
+      <wsdl:output name="removerUtilizadorResponse" message="tns:removerUtilizadorResponse">
+    </wsdl:output>
+      <wsdl:fault name="Exception" message="tns:Exception">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="votarNoItemSelecionado">
+      <wsdl:input name="votarNoItemSelecionado" message="tns:votarNoItemSelecionado">
+    </wsdl:input>
+      <wsdl:output name="votarNoItemSelecionadoResponse" message="tns:votarNoItemSelecionadoResponse">
+    </wsdl:output>
+      <wsdl:fault name="Exception" message="tns:Exception">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="teste">
+      <wsdl:input name="teste" message="tns:teste">
+    </wsdl:input>
+      <wsdl:output name="testeResponse" message="tns:testeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="associarUtilizador">
+      <wsdl:input name="associarUtilizador" message="tns:associarUtilizador">
+    </wsdl:input>
+      <wsdl:output name="associarUtilizadorResponse" message="tns:associarUtilizadorResponse">
+    </wsdl:output>
+      <wsdl:fault name="Exception" message="tns:Exception">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listarResultadosVotacao">
+      <wsdl:input name="listarResultadosVotacao" message="tns:listarResultadosVotacao">
+    </wsdl:input>
+      <wsdl:output name="listarResultadosVotacaoResponse" message="tns:listarResultadosVotacaoResponse">
+    </wsdl:output>
+      <wsdl:fault name="Exception" message="tns:Exception">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="obtemDescricaoItemVotado">
+      <wsdl:input name="obtemDescricaoItemVotado" message="tns:obtemDescricaoItemVotado">
+    </wsdl:input>
+      <wsdl:output name="obtemDescricaoItemVotadoResponse" message="tns:obtemDescricaoItemVotadoResponse">
+    </wsdl:output>
+      <wsdl:fault name="Exception" message="tns:Exception">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="tempoRestanteSessao">
+      <wsdl:input name="tempoRestanteSessao" message="tns:tempoRestanteSessao">
+    </wsdl:input>
+      <wsdl:output name="tempoRestanteSessaoResponse" message="tns:tempoRestanteSessaoResponse">
+    </wsdl:output>
+      <wsdl:fault name="Exception" message="tns:Exception">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="inicioDaVotacao">
+      <wsdl:input name="inicioDaVotacao" message="tns:inicioDaVotacao">
+    </wsdl:input>
+      <wsdl:output name="inicioDaVotacaoResponse" message="tns:inicioDaVotacaoResponse">
+    </wsdl:output>
+      <wsdl:fault name="Exception" message="tns:Exception">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listaItemsVotacao">
+      <wsdl:input name="listaItemsVotacao" message="tns:listaItemsVotacao">
+    </wsdl:input>
+      <wsdl:output name="listaItemsVotacaoResponse" message="tns:listaItemsVotacaoResponse">
+    </wsdl:output>
+      <wsdl:fault name="Exception" message="tns:Exception">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="duracaoDataSessao">
+      <wsdl:input name="duracaoDataSessao" message="tns:duracaoDataSessao">
+    </wsdl:input>
+      <wsdl:output name="duracaoDataSessaoResponse" message="tns:duracaoDataSessaoResponse">
+    </wsdl:output>
+      <wsdl:fault name="Exception" message="tns:Exception">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="validaUtilizador">
+      <wsdl:input name="validaUtilizador" message="tns:validaUtilizador">
+    </wsdl:input>
+      <wsdl:output name="validaUtilizadorResponse" message="tns:validaUtilizadorResponse">
+    </wsdl:output>
+      <wsdl:fault name="Exception" message="tns:Exception">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listaUtilizadoresRegistados">
+      <wsdl:input name="listaUtilizadoresRegistados" message="tns:listaUtilizadoresRegistados">
+    </wsdl:input>
+      <wsdl:output name="listaUtilizadoresRegistadosResponse" message="tns:listaUtilizadoresRegistadosResponse">
+    </wsdl:output>
+      <wsdl:fault name="Exception" message="tns:Exception">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listaUtilizadoresSessao">
+      <wsdl:input name="listaUtilizadoresSessao" message="tns:listaUtilizadoresSessao">
+    </wsdl:input>
+      <wsdl:output name="listaUtilizadoresSessaoResponse" message="tns:listaUtilizadoresSessaoResponse">
+    </wsdl:output>
+      <wsdl:fault name="Exception" message="tns:Exception">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="VotacaoSoapWSServiceSoapBinding" type="tns:VotacaoSoapWS">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="numeroTotalVotos">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="numeroTotalVotos">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="numeroTotalVotosResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="itemGanhador">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="itemGanhador">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="itemGanhadorResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="removerUtilizador">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="removerUtilizador">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="removerUtilizadorResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="votarNoItemSelecionado">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="votarNoItemSelecionado">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="votarNoItemSelecionadoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="teste">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="teste">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="testeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="associarUtilizador">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="associarUtilizador">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="associarUtilizadorResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listarResultadosVotacao">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="listarResultadosVotacao">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="listarResultadosVotacaoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="obtemDescricaoItemVotado">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="obtemDescricaoItemVotado">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="obtemDescricaoItemVotadoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="tempoRestanteSessao">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="tempoRestanteSessao">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="tempoRestanteSessaoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="inicioDaVotacao">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="inicioDaVotacao">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="inicioDaVotacaoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listaItemsVotacao">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="listaItemsVotacao">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="listaItemsVotacaoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="duracaoDataSessao">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="duracaoDataSessao">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="duracaoDataSessaoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="validaUtilizador">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="validaUtilizador">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="validaUtilizadorResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listaUtilizadoresRegistados">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="listaUtilizadoresRegistados">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="listaUtilizadoresRegistadosResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listaUtilizadoresSessao">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="listaUtilizadoresSessao">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="listaUtilizadoresSessaoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="VotacaoSoapWSService">
+    <wsdl:port name="VotacaoSoapWSPort" binding="tns:VotacaoSoapWSServiceSoapBinding">
+      <soap:address location="http://localhost:8080/VotacaoSOAP/services"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

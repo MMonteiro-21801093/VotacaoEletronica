@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://eletronica.votacao/" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://eletronica.votacao/">
+  <xs:element name="associarUtilizador" type="tns:associarUtilizador"/>
+  <xs:element name="associarUtilizadorResponse" type="tns:associarUtilizadorResponse"/>
+  <xs:element name="duracaoDataSessao" type="tns:duracaoDataSessao"/>
+  <xs:element name="duracaoDataSessaoResponse" type="tns:duracaoDataSessaoResponse"/>
+  <xs:element name="inicioDaVotacao" type="tns:inicioDaVotacao"/>
+  <xs:element name="inicioDaVotacaoResponse" type="tns:inicioDaVotacaoResponse"/>
+  <xs:element name="itemGanhador" type="tns:itemGanhador"/>
+  <xs:element name="itemGanhadorResponse" type="tns:itemGanhadorResponse"/>
+  <xs:element name="listaItemsVotacao" type="tns:listaItemsVotacao"/>
+  <xs:element name="listaItemsVotacaoResponse" type="tns:listaItemsVotacaoResponse"/>
+  <xs:element name="listaUtilizadoresRegistados" type="tns:listaUtilizadoresRegistados"/>
+  <xs:element name="listaUtilizadoresRegistadosResponse" type="tns:listaUtilizadoresRegistadosResponse"/>
+  <xs:element name="listaUtilizadoresSessao" type="tns:listaUtilizadoresSessao"/>
+  <xs:element name="listaUtilizadoresSessaoResponse" type="tns:listaUtilizadoresSessaoResponse"/>
+  <xs:element name="listarResultadosVotacao" type="tns:listarResultadosVotacao"/>
+  <xs:element name="listarResultadosVotacaoResponse" type="tns:listarResultadosVotacaoResponse"/>
+  <xs:element name="numeroTotalVotos" type="tns:numeroTotalVotos"/>
+  <xs:element name="numeroTotalVotosResponse" type="tns:numeroTotalVotosResponse"/>
+  <xs:element name="obtemDescricaoItemVotado" type="tns:obtemDescricaoItemVotado"/>
+  <xs:element name="obtemDescricaoItemVotadoResponse" type="tns:obtemDescricaoItemVotadoResponse"/>
+  <xs:element name="removerUtilizador" type="tns:removerUtilizador"/>
+  <xs:element name="removerUtilizadorResponse" type="tns:removerUtilizadorResponse"/>
+  <xs:element name="tempoRestanteSessao" type="tns:tempoRestanteSessao"/>
+  <xs:element name="tempoRestanteSessaoResponse" type="tns:tempoRestanteSessaoResponse"/>
+  <xs:element name="teste" type="tns:teste"/>
+  <xs:element name="testeResponse" type="tns:testeResponse"/>
+  <xs:element name="validaUtilizador" type="tns:validaUtilizador"/>
+  <xs:element name="validaUtilizadorResponse" type="tns:validaUtilizadorResponse"/>
+  <xs:element name="votarNoItemSelecionado" type="tns:votarNoItemSelecionado"/>
+  <xs:element name="votarNoItemSelecionadoResponse" type="tns:votarNoItemSelecionadoResponse"/>
+  <xs:complexType name="numeroTotalVotos">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="numeroTotalVotosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="itemGanhador">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="itemGanhadorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="removerUtilizador">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="removerUtilizadorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="votarNoItemSelecionado">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="votarNoItemSelecionadoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="teste">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="testeResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="associarUtilizador">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="associarUtilizadorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarResultadosVotacao">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="listarResultadosVotacaoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtemDescricaoItemVotado">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtemDescricaoItemVotadoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tempoRestanteSessao">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="tempoRestanteSessaoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="inicioDaVotacao">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="inicioDaVotacaoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listaItemsVotacao">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="listaItemsVotacaoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="duracaoDataSessao">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="duracaoDataSessaoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="validaUtilizador">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="validaUtilizadorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listaUtilizadoresRegistados">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="listaUtilizadoresRegistadosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listaUtilizadoresSessao">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="listaUtilizadoresSessaoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Exception" type="tns:Exception"/>
+  <xs:complexType name="Exception">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

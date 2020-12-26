@@ -1,11 +1,15 @@
 package votacao.eletronica;
 
+import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+
+import javax.jws.WebService;
 
 
  
 
+@WebService(targetNamespace = "http://eletronica.votacao/", portName = "VotacaoSoapWSPort", serviceName = "VotacaoSoapWSService")
 public class VotacaoSoapWS {
 	public static Interface stub = null;
 	public static String host = "localhost";
@@ -24,7 +28,7 @@ public class VotacaoSoapWS {
 		getRegistryStub("votacaoEletronica");
 		return stub.validaUtilizador(dn,user_pwd);
 	}
-	public String listaItemsVotacao() throws Exception {
+	public String listaItemsVotacao()  throws Exception{
 		getRegistryStub("votacaoEletronica");
 		return stub.listaItemsVotacao();
 	}
@@ -68,12 +72,29 @@ public class VotacaoSoapWS {
 		getRegistryStub("votacaoEletronica");
 		return stub.removerUtilizador(idUser);
 	}
-	public String obtemDescricaoItemVotado(String idItem) throws Exception {
+	public String obtemDescricaoItemVotado(String idItem)  throws Exception {
 		getRegistryStub("votacaoEletronica");
 		return stub.obtemDescricaoItemVotado(idItem);
 	}
-	public String votarNoItemSelecionado(String idItem,String userId) throws Exception {
+	public String votarNoItemSelecionado(String idItem,String userId)  throws Exception {
 		getRegistryStub("votacaoEletronica");
 		return stub.votarNoItemSelecionado(idItem,userId);
+	}
+	public  void teste() {
+		System.out.println("MENU ADMINISTRADOR");
+		System.out.println("0 - Menu inicial");
+		System.out.println("1 - Listar itens em votação");
+		System.out.println("2 - Início da sessão");
+		System.out.println("3 - Duração da sessão");
+		System.out.println("4 - Tempo restante de votação");
+		System.out.println("5 - Número total de votos");
+		System.out.println("6 - Listar resultados de votação (%)");
+		System.out.println("7 - Item ganhador");
+		System.out.println("8 - listar utilizadores registados");
+		System.out.println("9 - listar utilizadores da sessão");
+		System.out.println("10 - associar utilizador");
+		System.out.println("11 - remover utilizador");
+		System.out.println("99 - Sair");
+	 
 	}
 }
