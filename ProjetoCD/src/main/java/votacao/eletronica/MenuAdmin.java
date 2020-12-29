@@ -149,7 +149,12 @@ public class MenuAdmin {
 
 	private static void listarResultadosVotacao() throws Exception{
 		
-		 List<ResultadoEleicao> listaResultadoEleicao = DataBase.itemGanhador();
+		 List<ResultadoEleicao> listaResultadoEleicao = DataBase.listarResultadosVotacao();
+			int i = 1;
+		      for(ResultadoEleicao resultado:listaResultadoEleicao) {
+		    		 System.out.print(i+"º lugar "+ resultado.getNome() + "com "+ resultado.getPercentagem() +" % dos votos \n" );
+		    		 i++;
+		      }
 	}
 
 	private static void numeroTotalVotos() throws Exception {	 

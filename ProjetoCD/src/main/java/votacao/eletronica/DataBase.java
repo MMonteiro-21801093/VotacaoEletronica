@@ -113,7 +113,7 @@ public static List<ResultadoEleicao> itemGanhador() throws Exception{
 	
 	   ArrayList<ResultadoEleicao> resultado = new ArrayList<>();
 	   
-	   long antMan = response.stream()
+	   long antMan = utilizadores.stream()
                .filter((c) -> c.getItemVoto().equals("1"))
                .collect(Collectors.counting());
 	   
@@ -122,7 +122,7 @@ public static List<ResultadoEleicao> itemGanhador() throws Exception{
 	   ResultadoEleicao resultadoEleicao = new ResultadoEleicao(item.getNome(), antMan);
 	   resultado.add(resultadoEleicao);
 	   
-	   long avengers = response.stream()
+	   long avengers = utilizadores.stream()
                .filter((c) -> c.getItemVoto().equals("2"))
                .collect(Collectors.counting());
 	   
@@ -131,7 +131,7 @@ public static List<ResultadoEleicao> itemGanhador() throws Exception{
 	   resultadoEleicao = new ResultadoEleicao(item.getNome(), avengers);
 	   resultado.add(resultadoEleicao);
 	   
-	   long capitanAmerica = response.stream()
+	   long capitanAmerica = utilizadores.stream()
                .filter((c) -> c.getItemVoto().equals("3"))
                .collect(Collectors.counting());
 	   
@@ -140,7 +140,7 @@ public static List<ResultadoEleicao> itemGanhador() throws Exception{
 	   resultadoEleicao = new ResultadoEleicao(item.getNome(), capitanAmerica);
 	   resultado.add(resultadoEleicao);
 	   
-	   long guardiansGalaxy = response.stream()
+	   long guardiansGalaxy = utilizadores.stream()
                .filter((c) -> c.getItemVoto().equals("4"))
                .collect(Collectors.counting());
 	   
@@ -149,7 +149,7 @@ public static List<ResultadoEleicao> itemGanhador() throws Exception{
 	   resultadoEleicao = new ResultadoEleicao(item.getNome(), guardiansGalaxy);
 	   resultado.add(resultadoEleicao);
 	   
-	   long ironMan = response.stream()
+	   long ironMan = utilizadores.stream()
                .filter((c) -> c.getItemVoto().equals("5"))
                .collect(Collectors.counting());
 	   
@@ -158,7 +158,7 @@ public static List<ResultadoEleicao> itemGanhador() throws Exception{
 	   resultadoEleicao = new ResultadoEleicao(item.getNome(), ironMan);
 	   resultado.add(resultadoEleicao);
 	   
-	   long darkWorld = response.stream()
+	   long darkWorld = utilizadores.stream()
                .filter((c) -> c.getItemVoto().equals("6"))
                .collect(Collectors.counting());
 	   
@@ -202,7 +202,7 @@ public static List<ResultadoEleicao> listarResultadosVotacao() throws Exception 
 	   ArrayList<ResultadoEleicao> resultado = new ArrayList<>();
 	   int quantidadeVotos = utilizadores.size();
 	   
-	   long antMan = response.stream()
+	   long antMan = utilizadores.stream()
               .filter((c) -> c.getItemVoto().equals("1"))
               .collect(Collectors.counting());
 	   
@@ -212,7 +212,7 @@ public static List<ResultadoEleicao> listarResultadosVotacao() throws Exception 
 	   resultadoEleicao.calculaPercentagem(quantidadeVotos);
 	   resultado.add(resultadoEleicao);
 	   
-	   long avengers = response.stream()
+	   long avengers = utilizadores.stream()
               .filter((c) -> c.getItemVoto().equals("2"))
               .collect(Collectors.counting());
 	   
@@ -222,7 +222,7 @@ public static List<ResultadoEleicao> listarResultadosVotacao() throws Exception 
 	   resultadoEleicao.calculaPercentagem(quantidadeVotos);
 	   resultado.add(resultadoEleicao);
 	   
-	   long capitanAmerica = response.stream()
+	   long capitanAmerica = utilizadores.stream()
               .filter((c) -> c.getItemVoto().equals("3"))
               .collect(Collectors.counting());
 	   
@@ -232,7 +232,7 @@ public static List<ResultadoEleicao> listarResultadosVotacao() throws Exception 
 	   resultadoEleicao.calculaPercentagem(quantidadeVotos);
 	   resultado.add(resultadoEleicao);
 	   
-	   long guardiansGalaxy = response.stream()
+	   long guardiansGalaxy = utilizadores.stream()
               .filter((c) -> c.getItemVoto().equals("4"))
               .collect(Collectors.counting());
 	   
@@ -242,7 +242,7 @@ public static List<ResultadoEleicao> listarResultadosVotacao() throws Exception 
 	   resultadoEleicao.calculaPercentagem(quantidadeVotos);
 	   resultado.add(resultadoEleicao);
 	   
-	   long ironMan = response.stream()
+	   long ironMan = utilizadores.stream()
               .filter((c) -> c.getItemVoto().equals("5"))
               .collect(Collectors.counting());
 	   
@@ -252,7 +252,7 @@ public static List<ResultadoEleicao> listarResultadosVotacao() throws Exception 
 	   resultadoEleicao.calculaPercentagem(quantidadeVotos);
 	   resultado.add(resultadoEleicao);
 	   
-	   long darkWorld = response.stream()
+	   long darkWorld = utilizadores.stream()
               .filter((c) -> c.getItemVoto().equals("6"))
               .collect(Collectors.counting());
 	   

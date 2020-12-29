@@ -50,7 +50,7 @@ public Server() {}
 			itemsVotacao = DataBase.listaItemsVotacao();
 			
 		    for(ItemDocument item : itemsVotacao){
-		    	items+="Nome: "+item.getNome() +" Abrev: "+ item.getAbrev()+"\n";
+		    	items+="Nome: "+item.getNome() +" Abrev: "+ item.getAbrev()+"\r\n";
 	        }
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -123,7 +123,7 @@ public Server() {}
 			int i = 1;
 			String res ="";
 		      for(ResultadoEleicao resultado:listaResultadoEleicao) {
-		    	  res+=i+"º lugar "+ resultado.getNome() + "com "+ resultado.getPercentagem() +" % dos votos \n" ;
+		    	  res+=i+"º lugar "+ resultado.getNome() + "com "+ resultado.getPercentagem() +" % dos votos \r\n" ;
 		    		 i++;
 		      }
 		return res;
@@ -133,7 +133,7 @@ public Server() {}
 		int i = 1;
 		String res ="";
 	      for(ResultadoEleicao resultado:ganhador) {
-	    	  res+=i+"º lugar "+ resultado.getNome() + "com "+ resultado.getVotos()+" votos \n";
+	    	  res+=i+"º lugar "+ resultado.getNome() + "com "+ resultado.getVotos()+" votos \r\n";
 	    	   i++;
 	      }
 	      return res;
@@ -143,7 +143,7 @@ public Server() {}
 		resultado="listaUtilizadoresRegistados\n";	
 			List<VoterDocument> utilizadoresRegistados = DataBase.listaUtilizadoresRegistados();
 		    for(VoterDocument item : utilizadoresRegistados){
-		    	resultado+="Nome: "+item.get_id() +"\n";
+		    	resultado+="Nome: "+item.get_id() +"\r\n";
 	        }
 			if(utilizadoresRegistados.size()==0) {
 				resultado="Não existem utilizadores registados";	
