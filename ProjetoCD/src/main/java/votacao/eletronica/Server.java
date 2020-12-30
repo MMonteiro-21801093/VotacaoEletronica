@@ -140,7 +140,7 @@ public Server() {}
 	}
 	public String listaUtilizadoresRegistados()  throws Exception{
 		String resultado ="";
-		resultado="listaUtilizadoresRegistados\n";	
+		resultado="";	
 			List<VoterDocument> utilizadoresRegistados = DataBase.listaUtilizadoresRegistados();
 		    for(VoterDocument item : utilizadoresRegistados){
 		    	resultado+="Nome: "+item.get_id() +"\r\n";
