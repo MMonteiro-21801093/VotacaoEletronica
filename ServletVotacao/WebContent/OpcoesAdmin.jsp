@@ -13,7 +13,7 @@
       <input type="submit" name="action" value="listar resultados de votação (%)">
       <input type="submit" name="action" value="listar utilizadores registados">
        <input type="submit" name="action" value="Log In">
-     <p>${resultado}.</p>
+     <p>${resultado}.<br></p>
 	</form>
 </body>
 </html>
