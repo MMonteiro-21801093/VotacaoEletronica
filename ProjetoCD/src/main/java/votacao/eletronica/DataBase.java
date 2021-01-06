@@ -19,17 +19,26 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.*;
+
+import java.io.IOException;
 public class DataBase {
 	static CloudantClient client;
 	static Database db;
-public static List<ItemDocument> listaItemsVotacao() throws Exception {
-	     connectDatabase();
-		   List<ItemDocument> response = db.getAllDocsRequestBuilder().includeDocs(true).build().getResponse().getDocsAs(ItemDocument.class);
+public static List<ItemDocument> listaItemsVotacao() throws Exception   {
+	   List<ItemDocument> itemsVotacao = null;
+	     
+			connectDatabase();
+ 
+		   List<ItemDocument> response;
+		 
+			response = db.getAllDocsRequestBuilder().includeDocs(true).build().getResponse().getDocsAs(ItemDocument.class);
+			 itemsVotacao =
+	                    response.stream()
+	                    .filter((c) -> c.getTipo().equals("Item"))
+	                    .collect(toList());
+	 
 		
-		   List<ItemDocument> itemsVotacao =
-		                    response.stream()
-		                    .filter((c) -> c.getTipo().equals("Item"))
-		                    .collect(toList());
+		
 		   
 		return itemsVotacao;
 	}
@@ -185,7 +194,7 @@ public static String obtemDescricaoItemVotado(String id)throws Exception {
 public static String votarNoItemSelecionado(String item,String idVotante)throws Exception {
 	connectDatabase();
 	VoterDocument  votante = db.find(VoterDocument.class,idVotante);
-	votante.setItemVoto(item);;
+	votante.setItemVoto(item);
 	com.cloudant.client.api.model.Response response = db.update(votante);
 	return "OK";
 	

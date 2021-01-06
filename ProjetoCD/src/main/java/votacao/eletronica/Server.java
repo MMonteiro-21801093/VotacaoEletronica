@@ -43,19 +43,16 @@ public Server() {}
 		} 
 		
 	}
-	public String listaItemsVotacao(){
+	public String listaItemsVotacao() throws Exception{
 		List<ItemDocument> itemsVotacao;
 		String items ="";
-		try {
+	 
 			itemsVotacao = DataBase.listaItemsVotacao();
 			
 		    for(ItemDocument item : itemsVotacao){
 		    	items+="Nome: "+item.getNome() +" Abrev: "+ item.getAbrev()+"\r\n";
 	        }
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+ 
 	
 		return items;
 	}

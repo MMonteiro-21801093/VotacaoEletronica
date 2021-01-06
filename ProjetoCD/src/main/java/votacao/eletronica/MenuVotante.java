@@ -134,7 +134,7 @@ public class MenuVotante {
 	       String opt="";
 	       String itemVotado ="";
 	       do{
-	         System.out.println("Voto? ");
+	         System.out.println("Digite o código do voto? ");
 			 opt = scan.nextLine(); 
 			 itemVotado= DataBase.obtemDescricaoItemVotado(opt);
 		     System.out.print("Confirma o voto em "+ itemVotado+" ? (S/N)\n");

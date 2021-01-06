@@ -22,7 +22,7 @@ public class MenuAdmin {
 		String dn = "uid=" + user_id + "," + user_rdn + "," + base; // DN (distinguished name)
 		//101010
 		
-
+		listaItemsVotacao();
 		
 	     Scanner scan = new Scanner(System.in);
 		   System.out.println("login:");
@@ -220,9 +220,15 @@ public class MenuAdmin {
 
 
 	private static  void listaItemsVotacao() throws Exception {
+		try {
 		List<ItemDocument> itemsVotacao = DataBase.listaItemsVotacao();
 	    for(ItemDocument item : itemsVotacao){
             System.out.print("Nome: "+item.getNome() +" Abrev: "+ item.getAbrev()+"\n");
         }
+		} catch (Exception e) {
+		    System.out.print("Não foi possivel executar a ação selecionada\n");
+			}
+		
+		
 	}
 }

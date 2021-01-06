@@ -3,7 +3,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 public interface Interface  extends Remote {
 	String validaUtilizador(String dn ,String user_pwd) throws RemoteException;
-	String listaItemsVotacao() throws Exception;
+	String listaItemsVotacao()throws Exception;
 	String inicioDaVotacao() throws Exception;
 	String duracaoDataSessao() throws Exception;
 	String tempoRestanteSessao() throws Exception;
