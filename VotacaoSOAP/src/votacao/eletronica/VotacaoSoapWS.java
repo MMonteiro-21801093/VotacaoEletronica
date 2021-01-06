@@ -26,75 +26,126 @@ public class VotacaoSoapWS {
 	}
 	public String validaUtilizador(String dn ,String user_pwd) throws Exception {
 		getRegistryStub("votacaoEletronica");
-		return stub.validaUtilizador(dn,user_pwd);
+		try {
+		  return stub.validaUtilizador(dn,user_pwd);
+		} catch (Exception e) {
+		  return "Não foi possivel validar o utilizador";
+		}
+	
 	}
 	public String listaItemsVotacao()  throws Exception{
 		getRegistryStub("votacaoEletronica");
-		return stub.listaItemsVotacao();
+		try {
+	    	return stub.listaItemsVotacao();
+		} catch (Exception e) {
+		return "Não foi possivel listar itens da sessão";
+		}
+	
 	}
 	public String inicioDaVotacao() throws Exception {
 		getRegistryStub("votacaoEletronica");
-		return stub.inicioDaVotacao();
+	
+		try {
+		    	return stub.inicioDaVotacao();
+			} catch (Exception e) {
+				return "Não foi possivel executar a ação selecionada";
+			}
 	}
 	public String duracaoDataSessao() throws Exception {
-		getRegistryStub("votacaoEletronica");
-		return stub.duracaoDataSessao();
+		getRegistryStub("votacaoEletronica");		
+		try {
+			return stub.duracaoDataSessao();
+		} catch (Exception e) {
+			return "Não foi possivel obter duração da sessão";
+		}
 	}
 	public String tempoRestanteSessao() throws Exception {
 		getRegistryStub("votacaoEletronica");
-		return stub.tempoRestanteSessao();
+		try {
+			return stub.tempoRestanteSessao();
+		} catch (Exception e) {
+			return "Não foi possivel obter tempo restante da sessão";
+		}
 	}
 	public String numeroTotalVotos() throws Exception {
 		getRegistryStub("votacaoEletronica");
-		return stub.numeroTotalVotos();
+		try {
+			return stub.numeroTotalVotos();
+		} catch (Exception e) {
+			return "Não foi possivel obter nº total de votos";
+		}
 	}
 	public String listarResultadosVotacao() throws Exception {
 		getRegistryStub("votacaoEletronica");
-		return stub.listarResultadosVotacao();
+		try {
+			return stub.listarResultadosVotacao();
+		} catch (Exception e) {
+			return "Não foi possivel listar resultados da votação";
+		}
+		
 	}
 	public String itemGanhador() throws Exception {
 		getRegistryStub("votacaoEletronica");
-		return stub.listarResultadosVotacao();
+		try {
+			return stub.listarResultadosVotacao();
+		} catch (Exception e) {
+			return "Não foi possivel listar item ganhador";
+		}
+	
 	}
 	public String listaUtilizadoresRegistados() throws Exception {
 		getRegistryStub("votacaoEletronica");
-		return stub.listaUtilizadoresRegistados();
+		try {
+			return stub.listaUtilizadoresRegistados();
+		} catch (Exception e) {
+			return "Não foi possivel listar utilizadores registados";
+		}
+		
 	}
 	public String listaUtilizadoresSessao() throws Exception {
 		getRegistryStub("votacaoEletronica");
-		return stub.listaUtilizadoresSessao();
+		try {
+			return stub.listaUtilizadoresSessao();
+		} catch (Exception e) {
+			return "Não foi possivel listar utilizadores da sessão";
+		}
+	
 	}
 	public String associarUtilizador(String idUser) throws Exception {
 		getRegistryStub("votacaoEletronica");
-		return stub.associarUtilizador(idUser);
+		try {
+			return stub.associarUtilizador(idUser);
+		} catch (Exception e) {
+			return "Não foi possivel associar utilizador";
+		}
+		
 	}
 	public String removerUtilizador(String idUser) throws Exception {
 		getRegistryStub("votacaoEletronica");
-		return stub.removerUtilizador(idUser);
+		try {
+			return stub.removerUtilizador(idUser);
+		} catch (Exception e) {
+			return "Não foi possivel remover utilizador";
+		}
+
 	}
 	public String obtemDescricaoItemVotado(String idItem)  throws Exception {
 		getRegistryStub("votacaoEletronica");
-		return stub.obtemDescricaoItemVotado(idItem);
+		try {
+			return stub.obtemDescricaoItemVotado(idItem);
+		} catch (Exception e) {
+			return "Não foi possivel obter descrição do item votado";
+		}
+	
 	}
 	public String votarNoItemSelecionado(String idItem,String userId)  throws Exception {
 		getRegistryStub("votacaoEletronica");
-		return stub.votarNoItemSelecionado(idItem,userId);
+		try {
+			return stub.votarNoItemSelecionado(idItem,userId);
+		} catch (Exception e) {
+			return "Não foi possivel votar no item selecionado";
+		}
+	
 	}
-	public  void teste() {
-		System.out.println("MENU ADMINISTRADOR");
-		System.out.println("0 - Menu inicial");
-		System.out.println("1 - Listar itens em votação");
-		System.out.println("2 - Início da sessão");
-		System.out.println("3 - Duração da sessão");
-		System.out.println("4 - Tempo restante de votação");
-		System.out.println("5 - Número total de votos");
-		System.out.println("6 - Listar resultados de votação (%)");
-		System.out.println("7 - Item ganhador");
-		System.out.println("8 - listar utilizadores registados");
-		System.out.println("9 - listar utilizadores da sessão");
-		System.out.println("10 - associar utilizador");
-		System.out.println("11 - remover utilizador");
-		System.out.println("99 - Sair");
-	 
-	}
+
 }
