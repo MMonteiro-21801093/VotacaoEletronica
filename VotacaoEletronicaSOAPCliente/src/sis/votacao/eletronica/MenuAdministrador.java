@@ -25,23 +25,14 @@ public class MenuAdministrador {
 		String user_rdn ="ou=admin"; // user RDN (relative distinguished names)
 		String dn = "uid=" + user_id + "," + user_rdn + "," + base; // DN (distinguished name)
 		String opcaoSelecionada ="";
-      
-    	// java.lang.String _listaUtilizadoresRegistados__return = port.listaItemsVotacao();
-		//System.out.println("listaUtilizadoresRegistados.result=" + _listaUtilizadoresRegistados__return);
-		
-		
-	
-		//101010
-		
 
-		
-	     Scanner scan = new Scanner(System.in);
+	       Scanner scan = new Scanner(System.in);
 		   System.out.println("login:");
 		     user_id = scan.nextLine();  // Read user input
 		    System.out.println("password:");
               user_pwd = scan.nextLine();  // Read user input
-		   dn = "uid=" + user_id + "," + user_rdn + "," + base; 
- 
+		     dn = "uid=" + user_id + "," + user_rdn + "," + base; 
+		
         do {
 			if (port.validaUtilizador(dn, user_pwd).equals("OK")) {
 				System.out.println(" ");
@@ -96,8 +87,7 @@ public class MenuAdministrador {
 			    removerUtilizador();
 			    break;
 				case "99":
-			    System.out.println("Log Out");
-			    
+			    System.out.println("Log Out");    
 			    break;
 			    default:
 			    System.out.println("Opção inválida");	
@@ -111,7 +101,11 @@ public class MenuAdministrador {
         }while(!opcaoSelecionada.equals("99"));
     }
 	private static void listaItemsVotacao() throws Exception_Exception {
-		System.out.println(port.listaItemsVotacao());
+		 
+			System.out.println(port.listaItemsVotacao());
+	    
+	 
+
 		
 	}
 	private static void removerUtilizador() throws Exception {
