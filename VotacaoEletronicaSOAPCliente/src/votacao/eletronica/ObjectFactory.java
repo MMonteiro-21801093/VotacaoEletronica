@@ -25,7 +25,8 @@ import javax.xml.namespace.QName;
 public class ObjectFactory {
 
     private final static QName _ItemGanhador_QNAME = new QName("http://eletronica.votacao/", "itemGanhador");
-    private final static QName _Exception_QNAME = new QName("http://eletronica.votacao/", "Exception");
+    private final static QName _VotanteAtivo_QNAME = new QName("http://eletronica.votacao/", "votanteAtivo");
+	private final static QName _Exception_QNAME = new QName("http://eletronica.votacao/", "Exception");
     private final static QName _ListaItemsVotacaoResponse_QNAME = new QName("http://eletronica.votacao/", "listaItemsVotacaoResponse");
     private final static QName _AssociarUtilizador_QNAME = new QName("http://eletronica.votacao/", "associarUtilizador");
     private final static QName _ListarResultadosVotacao_QNAME = new QName("http://eletronica.votacao/", "listarResultadosVotacao");
@@ -46,7 +47,8 @@ public class ObjectFactory {
     private final static QName _NumeroTotalVotosResponse_QNAME = new QName("http://eletronica.votacao/", "numeroTotalVotosResponse");
     private final static QName _VotarNoItemSelecionado_QNAME = new QName("http://eletronica.votacao/", "votarNoItemSelecionado");
     private final static QName _DuracaoDataSessaoResponse_QNAME = new QName("http://eletronica.votacao/", "duracaoDataSessaoResponse");
-    private final static QName _Teste_QNAME = new QName("http://eletronica.votacao/", "teste");
+    private final static QName _VotanteAtivoResponse_QNAME = new QName("http://eletronica.votacao/", "votanteAtivoResponse");
+	private final static QName _Teste_QNAME = new QName("http://eletronica.votacao/", "teste");
     private final static QName _TempoRestanteSessao_QNAME = new QName("http://eletronica.votacao/", "tempoRestanteSessao");
     private final static QName _RemoverUtilizadorResponse_QNAME = new QName("http://eletronica.votacao/", "removerUtilizadorResponse");
     private final static QName _ObtemDescricaoItemVotadoResponse_QNAME = new QName("http://eletronica.votacao/", "obtemDescricaoItemVotadoResponse");
@@ -72,6 +74,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link VotanteAtivoResponse }
+     * 
+     */
+    public VotanteAtivoResponse createVotanteAtivoResponse() {
+        return new VotanteAtivoResponse();
+    }
+
+	/**
      * Create an instance of {@link Teste }
      * 
      */
@@ -232,6 +242,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link VotanteAtivo }
+     * 
+     */
+    public VotanteAtivo createVotanteAtivo() {
+        return new VotanteAtivo();
+    }
+
+	/**
      * Create an instance of {@link Exception }
      * 
      */
@@ -321,6 +339,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link VotanteAtivo }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://eletronica.votacao/", name = "votanteAtivo")
+    public JAXBElement<VotanteAtivo> createVotanteAtivo(VotanteAtivo value) {
+        return new JAXBElement<VotanteAtivo>(_VotanteAtivo_QNAME, VotanteAtivo.class, null, value);
+    }
+
+	/**
      * Create an instance of {@link JAXBElement }{@code <}{@link Exception }{@code >}}
      * 
      */
@@ -423,7 +450,7 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link TesteResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://eletronica.votacao/", name = "testeResponse")
+//    @XmlElementDecl(namespace = "http://eletronica.votacao/", name = "testeResponse")
     public JAXBElement<TesteResponse> createTesteResponse(TesteResponse value) {
         return new JAXBElement<TesteResponse>(_TesteResponse_QNAME, TesteResponse.class, null, value);
     }
@@ -510,10 +537,19 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link VotanteAtivoResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://eletronica.votacao/", name = "votanteAtivoResponse")
+    public JAXBElement<VotanteAtivoResponse> createVotanteAtivoResponse(VotanteAtivoResponse value) {
+        return new JAXBElement<VotanteAtivoResponse>(_VotanteAtivoResponse_QNAME, VotanteAtivoResponse.class, null, value);
+    }
+
+	/**
      * Create an instance of {@link JAXBElement }{@code <}{@link Teste }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://eletronica.votacao/", name = "teste")
+//    @XmlElementDecl(namespace = "http://eletronica.votacao/", name = "teste")
     public JAXBElement<Teste> createTeste(Teste value) {
         return new JAXBElement<Teste>(_Teste_QNAME, Teste.class, null, value);
     }

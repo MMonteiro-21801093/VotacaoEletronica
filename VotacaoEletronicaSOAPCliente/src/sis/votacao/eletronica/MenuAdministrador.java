@@ -18,14 +18,14 @@ public class MenuAdministrador {
     static VotacaoSoapWSService ss = new VotacaoSoapWSService(wsdlURL, SERVICE_NAME);
     static   VotacaoSoapWS port = ss.getVotacaoSoapWSPort(); 
     public static void main(String[] args)   throws java.lang.Exception {
-    	String teste ="";
+    
 		String user_id = ""; // user id
 		String user_pwd = ""; // user password
 		String base = "ou=prod,dc=example,dc=com";
 		String user_rdn ="ou=admin"; // user RDN (relative distinguished names)
 		String dn = "uid=" + user_id + "," + user_rdn + "," + base; // DN (distinguished name)
 		String opcaoSelecionada ="";
-
+ 
 	       Scanner scan = new Scanner(System.in);
 		   System.out.println("login:");
 		     user_id = scan.nextLine();  // Read user input
@@ -55,58 +55,87 @@ public class MenuAdministrador {
 				switch(opcaoSelecionada) {
 				case "1":
 				listaItemsVotacao();
+				System.out.println("Prima ENTER para continuar");
+			    opcaoSelecionada = scan.nextLine();
 				break;
 				case "2":
 			    inicioDaVotacao();
+				System.out.println("Prima ENTER para continuar");
+			    opcaoSelecionada = scan.nextLine();
 			    break;
 				case "3":
 			  	duracaoDataSessao();
+				System.out.println("Prima ENTER para continuar");
+			    opcaoSelecionada = scan.nextLine();
 			    break;
 				case "4":
 			    tempoRestanteSessao();
+				System.out.println("Prima ENTER para continuar");
+			    opcaoSelecionada = scan.nextLine();
 			    break;
 				case "5":
 			     numeroTotalVotos();
+			 	System.out.println("Prima ENTER para continuar");
+			    opcaoSelecionada = scan.nextLine();
 			    break;
 				case "6":
 			    listarResultadosVotacao();
+				System.out.println("Prima ENTER para continuar");
+			    opcaoSelecionada = scan.nextLine();
 			    break;
 				case "7":
 			    itemGanhador();
+				System.out.println("Prima ENTER para continuar");
+			    opcaoSelecionada = scan.nextLine();
 			    break;
 				case "8":
 			    listaUtilizadoresRegistados();
+				System.out.println("Prima ENTER para continuar");
+			    opcaoSelecionada = scan.nextLine();
 			    break;
 				case "9":
 			    listaUtilizadoresSessao();
+				System.out.println("Prima ENTER para continuar");
+			    opcaoSelecionada = scan.nextLine();
 			    break;
 				case "10":
 		        associarUtilizador();
+		    	System.out.println("Prima ENTER para continuar");
+			    opcaoSelecionada = scan.nextLine();
 			    break;
 				case "11":
 			    removerUtilizador();
+				System.out.println("Prima ENTER para continuar");
+			    opcaoSelecionada = scan.nextLine();
 			    break;
 				case "99":
-			    System.out.println("Log Out");    
+			    System.out.println("A sair");  
+			    System.out.println("Cliente Desconectado..");   
 			    break;
 			    default:
-			    System.out.println("Opção inválida");	
+			    System.out.println("Opção inválida");
+				System.out.println("Prima ENTER para continuar");
+			    opcaoSelecionada = scan.nextLine();
 				}
 			}	
 			else {
-				System.out.println("AUTH: false");
-				opcaoSelecionada="99";
+				System.out.println("Autenticação inválida");
+				System.out.println(" ");
+			    scan = new Scanner(System.in);
+			    System.out.println("login:");
+			    user_id = scan.nextLine();  // Read user input
+			    System.out.println("password:");
+		        user_pwd = scan.nextLine();  // Read user input
+			    dn = "uid=" + user_id + "," + user_rdn + "," + base; 
+	 
 			} 
 			
         }while(!opcaoSelecionada.equals("99"));
     }
 	private static void listaItemsVotacao() throws Exception_Exception {
-		 
-			System.out.println(port.listaItemsVotacao());
-	    
 	 
-
-		
+			System.out.println(port.listaItemsVotacao());
+	 
 	}
 	private static void removerUtilizador() throws Exception {
 	       Scanner scan = new Scanner(System.in);

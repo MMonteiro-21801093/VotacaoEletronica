@@ -49,31 +49,53 @@ public class MenuVotante {
 							switch(opcaoSelecionada) {
 							case "1":
 								listaItemsVotacao();
+								System.out.println("Prima ENTER para continuar");
+							    opcaoSelecionada = scan.nextLine();
 								break;
 							case "2":
 							    tempoRestanteSessao();
+								System.out.println("Prima ENTER para continuar");
+							    opcaoSelecionada = scan.nextLine();
 								break;
 							case "3":
 								votar(user_id);
+								System.out.println("Prima ENTER para continuar");
+							    opcaoSelecionada = scan.nextLine();
 								break;
 							case "4":
 								numeroTotalVotos();
+								System.out.println("Prima ENTER para continuar");
+							    opcaoSelecionada = scan.nextLine();
 								break;
 							case "5":
 								listarResultadosVotacao();
+								System.out.println("Prima ENTER para continuar");
+							    opcaoSelecionada = scan.nextLine();
 								break;
 							case "6":
-								 itemGanhador();
+							    itemGanhador();
+							    System.out.println("Prima ENTER para continuar");
+							    opcaoSelecionada = scan.nextLine();
 								break;
 							case "99":
+							    System.out.println("A sair");  
+							    System.out.println("Cliente Desconectado..");  
 								break;
 						    default:
-						    System.out.println("Opção inválida");		
+						    System.out.println("Opção inválida");	
+							System.out.println("Prima ENTER para continuar");
+						    opcaoSelecionada = scan.nextLine();
 							}
 						}	
 						else {
-							System.out.println("AUTH: false");
-							opcaoSelecionada="99";
+							System.out.println("Autenticação inválida");
+							System.out.println(" ");
+						    scan = new Scanner(System.in);
+						    System.out.println("login:");
+					        user_id = scan.nextLine();  // Read user input
+						    System.out.println("password:");
+					        user_pwd = scan.nextLine();  // Read user input
+					        dn = "uid=" + user_id + "," + user_rdn + "," + base; 
 						} 
 						
 			        }while(!opcaoSelecionada.equals("99"));
@@ -84,15 +106,29 @@ public class MenuVotante {
 	       String opt="";
 	       String codigo="";
 	       String itemVotado ="";
-	        do{
-	         System.out.println("Digite o código do voto?\n ");
-	         codigo = scan.nextLine();
-			 itemVotado= port.obtemDescricaoItemVotado(codigo);
-		     System.out.print("Confirma o voto em "+ itemVotado+" ? (S/N)\n");
-		     opt = scan.nextLine();
-	      }while(!opt.equals("S"));
-	       port.votarNoItemSelecionado(codigo,user_id);
-	       System.out.print("Obrigado, votou em  "+ itemVotado+" \n");
+	       String tempo = port.tempoRestanteSessao();
+	  
+	       if(tempo.startsWith("Sessão iniciada")) {
+	    	    String possoVotar = port.votanteAtivo(user_id);
+	            
+	             if(possoVotar.equals("OK")) {
+	            	  do{
+	         	         System.out.println("Digite o código do voto?\n ");
+	         	         codigo = scan.nextLine();
+	         			 itemVotado= port.obtemDescricaoItemVotado(codigo);
+	         		     System.out.print("Confirma o voto em "+ itemVotado+" ? (S/N)\n");
+	         		     opt = scan.nextLine();
+	         	      }while(!opt.equals("S"));
+	         	       port.votarNoItemSelecionado(codigo,user_id);
+	         	       System.out.print("Obrigado, votou em  "+ itemVotado+" \n");
+	             }else {
+	         	       System.out.print( possoVotar+" \n"); 
+	             }
+	       }else {
+	    	   System.out.print(tempo+" \n");
+	       }
+       
+	      
 	       
 	}
 	private static void listaItemsVotacao() throws Exception_Exception {
