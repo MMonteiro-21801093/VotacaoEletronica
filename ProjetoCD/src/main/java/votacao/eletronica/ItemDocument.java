@@ -11,7 +11,9 @@ public class ItemDocument {
       this.abrev = abrev;
       this.nome = nome;
     }
-
+	 public String getDescription(){
+		   return "ItemDocument";
+		  }
     public String toString() {
       return "{ id: " + _id + ",\nrev: " + _rev + ",\ntipo: " +tipo + ",\nabrev: " + abrev + ",\nnome: " + nome + "\n}";
     }

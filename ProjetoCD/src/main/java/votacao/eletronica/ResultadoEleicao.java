@@ -1,10 +1,11 @@
 package votacao.eletronica;
 
-public class ResultadoEleicao {
+public class ResultadoEleicao    {
 String nome;
-int votos;
-double percentagem;
+int votos=0;
+double percentagem=0;
 
+ 
 public ResultadoEleicao(String nome, long  votos) {
 	this.nome = nome;
 	this.votos = ((int) votos);
@@ -21,10 +22,27 @@ public int getVotos() {
 public void setVotos(int votos) {
 	this.votos = votos;
 }
- public void calculaPercentagem(int quantidadeVotos) {
-	 this.percentagem = (this.percentagem/quantidadeVotos)*100;
+ @Override
+public boolean equals(Object obj) {
+	   if (obj == null) {
+           return false;
+        }
+        final ResultadoEleicao std = (ResultadoEleicao) obj;
+        if (this == std) {
+           return true;
+        } else {
+           return (this.votos == std.getVotos());
+        }
+
+}
+public void calculaPercentagem(int quantidadeVotos) {
+ 
+		 this.percentagem = (((double) this.votos)/quantidadeVotos)*100;
+	 
+
  }
  public double getPercentagem() {
 		return percentagem;
 	}
+ 
 }

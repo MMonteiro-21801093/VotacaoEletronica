@@ -18,6 +18,7 @@ import org.apache.directory.ldap.client.api.LdapNetworkConnection;
 //import org.apache.log4j.BasicConfigurator;
 //import org.apache.log4j.Logger;
 
+
 public class LDAPUtils {
 
 	//static Logger log = Logger.getLogger(LDAPUtils.class);
