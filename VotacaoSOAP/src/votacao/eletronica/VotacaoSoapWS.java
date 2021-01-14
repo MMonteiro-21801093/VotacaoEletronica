@@ -29,7 +29,7 @@ public class VotacaoSoapWS {
 		try {
 		  return stub.validaUtilizador(dn,user_pwd);
 		} catch (Exception e) {
-		  return "Não foi possivel validar o utilizador";
+		  return e.getMessage().toString();
 		}
 	
 	}
@@ -38,7 +38,7 @@ public class VotacaoSoapWS {
 		try {
 	    	return stub.listaItemsVotacao();
 		} catch (Exception e) {
-		return "Não foi possivel listar itens da sessão";
+		return e.getMessage().toString();
 		}
 	
 	}
@@ -87,7 +87,7 @@ public class VotacaoSoapWS {
 	public String itemGanhador() throws Exception {
 		getRegistryStub("votacaoEletronica");
 		try {
-			return stub.listarResultadosVotacao();
+			return stub.itemGanhador();
 		} catch (Exception e) {
 			return "Não foi possivel listar item ganhador";
 		}
@@ -102,6 +102,7 @@ public class VotacaoSoapWS {
 		}
 		
 	}
+ 
 	public String listaUtilizadoresSessao() throws Exception {
 		getRegistryStub("votacaoEletronica");
 		try {
@@ -147,5 +148,13 @@ public class VotacaoSoapWS {
 		}
 	
 	}
-
+	public String votanteAtivo(String id) throws Exception {
+		getRegistryStub("votacaoEletronica");
+		try {
+			return stub.votanteAtivo(id);
+		} catch (Exception e) {
+			return "Não foi possivel obter se votante está ativo";
+		}
+	
+	}
 }

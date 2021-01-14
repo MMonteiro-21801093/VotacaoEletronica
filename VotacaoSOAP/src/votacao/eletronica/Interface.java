@@ -16,4 +16,5 @@ public interface Interface  extends Remote {
 	String removerUtilizador(String idUser) throws RemoteException;
 	String obtemDescricaoItemVotado(String idItem)throws RemoteException;
 	String votarNoItemSelecionado(String idItem,String userId) throws RemoteException;
+	String votanteAtivo(String id)throws Exception;
 }

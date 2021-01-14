@@ -23,10 +23,10 @@
   <xs:element name="removerUtilizadorResponse" type="tns:removerUtilizadorResponse"/>
   <xs:element name="tempoRestanteSessao" type="tns:tempoRestanteSessao"/>
   <xs:element name="tempoRestanteSessaoResponse" type="tns:tempoRestanteSessaoResponse"/>
-  <xs:element name="teste" type="tns:teste"/>
-  <xs:element name="testeResponse" type="tns:testeResponse"/>
   <xs:element name="validaUtilizador" type="tns:validaUtilizador"/>
   <xs:element name="validaUtilizadorResponse" type="tns:validaUtilizadorResponse"/>
+  <xs:element name="votanteAtivo" type="tns:votanteAtivo"/>
+  <xs:element name="votanteAtivoResponse" type="tns:votanteAtivoResponse"/>
   <xs:element name="votarNoItemSelecionado" type="tns:votarNoItemSelecionado"/>
   <xs:element name="votarNoItemSelecionadoResponse" type="tns:votarNoItemSelecionadoResponse"/>
   <xs:complexType name="numeroTotalVotos">
@@ -55,6 +55,16 @@
       <xs:element minOccurs="0" name="return" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="votanteAtivo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="votanteAtivoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="votarNoItemSelecionado">
     <xs:sequence>
       <xs:element minOccurs="0" name="arg0" type="xs:string"/>
@@ -65,12 +75,6 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="xs:string"/>
     </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="teste">
-    <xs:sequence/>
-  </xs:complexType>
-  <xs:complexType name="testeResponse">
-    <xs:sequence/>
   </xs:complexType>
   <xs:complexType name="associarUtilizador">
     <xs:sequence>

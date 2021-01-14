@@ -13,6 +13,10 @@
     <wsdl:part name="Exception" element="tns:Exception">
     </wsdl:part>
   </wsdl:message>
+  <wsdl:message name="votanteAtivo">
+    <wsdl:part name="parameters" element="tns:votanteAtivo">
+    </wsdl:part>
+  </wsdl:message>
   <wsdl:message name="listaItemsVotacaoResponse">
     <wsdl:part name="parameters" element="tns:listaItemsVotacaoResponse">
     </wsdl:part>
@@ -53,10 +57,6 @@
     <wsdl:part name="parameters" element="tns:listaItemsVotacao">
     </wsdl:part>
   </wsdl:message>
-  <wsdl:message name="testeResponse">
-    <wsdl:part name="parameters" element="tns:testeResponse">
-    </wsdl:part>
-  </wsdl:message>
   <wsdl:message name="itemGanhadorResponse">
     <wsdl:part name="parameters" element="tns:itemGanhadorResponse">
     </wsdl:part>
@@ -89,12 +89,12 @@
     <wsdl:part name="parameters" element="tns:votarNoItemSelecionado">
     </wsdl:part>
   </wsdl:message>
-  <wsdl:message name="teste">
-    <wsdl:part name="parameters" element="tns:teste">
-    </wsdl:part>
-  </wsdl:message>
   <wsdl:message name="duracaoDataSessaoResponse">
     <wsdl:part name="parameters" element="tns:duracaoDataSessaoResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="votanteAtivoResponse">
+    <wsdl:part name="parameters" element="tns:votanteAtivoResponse">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="tempoRestanteSessao">
@@ -154,6 +154,14 @@
       <wsdl:fault name="Exception" message="tns:Exception">
     </wsdl:fault>
     </wsdl:operation>
+    <wsdl:operation name="votanteAtivo">
+      <wsdl:input name="votanteAtivo" message="tns:votanteAtivo">
+    </wsdl:input>
+      <wsdl:output name="votanteAtivoResponse" message="tns:votanteAtivoResponse">
+    </wsdl:output>
+      <wsdl:fault name="Exception" message="tns:Exception">
+    </wsdl:fault>
+    </wsdl:operation>
     <wsdl:operation name="votarNoItemSelecionado">
       <wsdl:input name="votarNoItemSelecionado" message="tns:votarNoItemSelecionado">
     </wsdl:input>
@@ -161,12 +169,6 @@
     </wsdl:output>
       <wsdl:fault name="Exception" message="tns:Exception">
     </wsdl:fault>
-    </wsdl:operation>
-    <wsdl:operation name="teste">
-      <wsdl:input name="teste" message="tns:teste">
-    </wsdl:input>
-      <wsdl:output name="testeResponse" message="tns:testeResponse">
-    </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="associarUtilizador">
       <wsdl:input name="associarUtilizador" message="tns:associarUtilizador">
@@ -287,6 +289,18 @@
         <soap:fault name="Exception" use="literal"/>
       </wsdl:fault>
     </wsdl:operation>
+    <wsdl:operation name="votanteAtivo">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="votanteAtivo">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="votanteAtivoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
     <wsdl:operation name="votarNoItemSelecionado">
       <soap:operation soapAction="" style="document"/>
       <wsdl:input name="votarNoItemSelecionado">
@@ -298,15 +312,6 @@
       <wsdl:fault name="Exception">
         <soap:fault name="Exception" use="literal"/>
       </wsdl:fault>
-    </wsdl:operation>
-    <wsdl:operation name="teste">
-      <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="teste">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="testeResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="associarUtilizador">
       <soap:operation soapAction="" style="document"/>
