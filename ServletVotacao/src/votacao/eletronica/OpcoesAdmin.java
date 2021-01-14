@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 public class OpcoesAdmin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public static Interface stub = null;
-	public static String host = "localhost";
+	public static String host = "localhost";//192.168.56.101
 	public static int port = 1099;	/**
     /**
      * @see HttpServlet#HttpServlet()
