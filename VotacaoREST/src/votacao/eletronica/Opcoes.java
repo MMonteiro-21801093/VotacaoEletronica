@@ -1,9 +1,6 @@
 package votacao.eletronica;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.rmi.registry.LocateRegistry;
-import java.rmi.registry.Registry;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

@@ -12,7 +12,7 @@ import javax.ws.rs.core.MediaType;
 @Path("/funcoesvotacao")
 public class FuncoesVotacao {
 	public static Interface stub = null;
-	public static String host = "localhost";
+	public static String host = "localhost";//192.168.56.101
 	public static int port = 1099; 
 	
     protected void getRegistryStub(String name) {
