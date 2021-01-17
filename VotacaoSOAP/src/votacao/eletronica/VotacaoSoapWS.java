@@ -12,7 +12,7 @@ import javax.jws.WebService;
 @WebService(targetNamespace = "http://eletronica.votacao/", portName = "VotacaoSoapWSPort", serviceName = "VotacaoSoapWSService")
 public class VotacaoSoapWS {
 	public static Interface stub = null;
-	public static String host = "localhost";
+	public static String host = "localhost";//192.168.56.101
 	public static int port = 1099;
 	
 	protected void getRegistryStub(String name) {
@@ -29,16 +29,17 @@ public class VotacaoSoapWS {
 		try {
 		  return stub.validaUtilizador(dn,user_pwd);
 		} catch (Exception e) {
-		  return e.getMessage().toString();
+			return "Não foi possivel validar o utilizador";
 		}
 	
 	}
-	public String listaItemsVotacao()  throws Exception{
-		getRegistryStub("votacaoEletronica");
+	public String listaItemsVotacao()throws Exception{
+		
 		try {
+			getRegistryStub("votacaoEletronica");
 	    	return stub.listaItemsVotacao();
 		} catch (Exception e) {
-		return e.getMessage().toString();
+			return "Não foi possivel obter os items de votação";
 		}
 	
 	}
