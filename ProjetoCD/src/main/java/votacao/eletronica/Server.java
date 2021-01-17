@@ -47,7 +47,7 @@ public Server() {}
         }
     }
 	public String validaUtilizador(String dn, String user_pwd)  {
-		if (LDAPUtils.auth(dn, user_pwd)) {
+		if (LDAPUtils.validDn(dn)) {
 			if (LDAPUtils.auth(dn, user_pwd)) {
 				return "OK";
 			}else {
@@ -206,7 +206,7 @@ return result;
 			int i = 1;
 			String res ="";
 		      for(ResultadoEleicao resultado:listaResultadoEleicao) {
-		    	  res+=i+"º lugar "+ resultado.getNome() + "com "+ resultado.getPercentagem() +" % dos votos \r\n" ;
+		    	  res+=i+"º lugar "+ resultado.getNome() + " com "+ resultado.getPercentagem() +" % dos votos \r\n" ;
 		    		 i++;
 		      }
 		return res;
@@ -216,7 +216,7 @@ return result;
 		int i = 1;
 		String res ="";
 	      for(ResultadoEleicao resultado:ganhador) {
-	    	  res+=i+"º lugar "+ resultado.getNome() + "com "+ resultado.getVotos()+" votos \r\n";
+	    	  res+=i+"º lugar "+ resultado.getNome() + " com "+ resultado.getVotos()+" votos \r\n";
 	    	   i++;
 	      }
 	      return res;
@@ -226,7 +226,7 @@ return result;
 		resultado="";	
 			List<VoterDocument> utilizadoresRegistados = DBBackEnd.listaUtilizadoresRegistados();
 		    for(VoterDocument item : utilizadoresRegistados){
-		    	resultado+="Nome: "+item.get_id() +"\r\n";
+		    	resultado+="Id: "+item.get_id() +"\r\n";
 	        }
 			if(utilizadoresRegistados.size()==0) {
 				resultado="Não existem utilizadores registados";	
@@ -237,7 +237,7 @@ return result;
 		String resultado ="";
 		List<VoterDocument> utilizadoresSessao = DBBackEnd.listaUtilizadoresSessao();
 	    for(VoterDocument item : utilizadoresSessao){
-	    	resultado+="Nome: "+item.get_id() +"\n";
+	    	resultado+="Id: "+item.get_id() +"\n";
         }
 		if(utilizadoresSessao.size()==0) {
 			resultado="Não existem utilizadores na sessão";	

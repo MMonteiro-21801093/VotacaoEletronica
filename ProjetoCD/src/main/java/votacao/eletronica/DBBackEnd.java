@@ -35,17 +35,23 @@ public class DBBackEnd {
 
 	 
 public static List<ItemDocument> listaItemsVotacao() throws Exception   {
-	   List<ItemDocument> itemsVotacao = null;
+	   List<ItemDocument> itemsVotacao = new ArrayList<ItemDocument>();
 	     
 			connectDatabase();
  
 		   List<ItemDocument> response;
 		 
 			response = db.getAllDocsRequestBuilder().includeDocs(true).build().getResponse().getDocsAs(ItemDocument.class);
-			 itemsVotacao =
-	                    response.stream()
-	                    .filter((c) -> c.getTipo().equals("Item"))
-	                    .collect(toList());
+			
+			for(ItemDocument doc:response) {
+				if(doc.getTipo().equals("Item")) {
+					itemsVotacao.add(doc);
+				}
+			}
+		//	itemsVotacao =
+		//	       response.stream()
+		//	    .filter((c) -> c.getTipo().equals("Item"))
+		//	    .collect(toList());
 	 
 		return itemsVotacao;
 	}
@@ -241,12 +247,9 @@ public static List<ResultadoEleicao> listarResultadosVotacao() throws Exception 
 	   
 	   ItemDocument  item = db.find(ItemDocument.class,"1");
 	   
-	   ResultadoEleicao resultadoEleicao = new ResultadoEleicao(item.getNome(), antMan);
+	   ResultadoEleicao resultadoEleicaoAntMan = new ResultadoEleicao(item.getNome(), antMan);
 	   
-	   if(antMan> 0) {
-		   resultadoEleicao.calculaPercentagem(quantidadeVotos);  
-	   }
-	   resultado.add(resultadoEleicao);
+	 
 	   
 	   long avengers = utilizadores.stream()
               .filter((c) -> c.getItemVoto().equals("2"))
@@ -256,11 +259,8 @@ public static List<ResultadoEleicao> listarResultadosVotacao() throws Exception 
 	   
 	   item = db.find(ItemDocument.class,"2");
 	   
-	   resultadoEleicao = new ResultadoEleicao(item.getNome(), avengers);
-	   if(avengers> 0) {
-		   resultadoEleicao.calculaPercentagem(quantidadeVotos);  
-	   }
-	   resultado.add(resultadoEleicao);
+	   ResultadoEleicao resultadoEleicaoAvengers = new ResultadoEleicao(item.getNome(), avengers);
+	 
 	   
 	   long capitanAmerica = utilizadores.stream()
               .filter((c) -> c.getItemVoto().equals("3"))
@@ -272,11 +272,8 @@ public static List<ResultadoEleicao> listarResultadosVotacao() throws Exception 
 	   
 	   item = db.find(ItemDocument.class,"3");
 	   
-	   resultadoEleicao = new ResultadoEleicao(item.getNome(), capitanAmerica);
-	   if(capitanAmerica> 0) {
-		   resultadoEleicao.calculaPercentagem(quantidadeVotos);  
-	   }
-	   resultado.add(resultadoEleicao);
+	   ResultadoEleicao resultadoEleicaoCapitanAmerica = new ResultadoEleicao(item.getNome(), capitanAmerica);
+	
 	   
 	   long guardiansGalaxy = utilizadores.stream()
               .filter((c) -> c.getItemVoto().equals("4"))
@@ -287,11 +284,8 @@ public static List<ResultadoEleicao> listarResultadosVotacao() throws Exception 
 	   
 	   item = db.find(ItemDocument.class,"4");
 	   
-	   resultadoEleicao = new ResultadoEleicao(item.getNome(), guardiansGalaxy);
-	   if(guardiansGalaxy> 0) {
-		   resultadoEleicao.calculaPercentagem(quantidadeVotos);  
-	   }
-	   resultado.add(resultadoEleicao);
+	   ResultadoEleicao resultadoEleicaoGuardiansGalaxy = new ResultadoEleicao(item.getNome(), guardiansGalaxy);
+	
 	   
 	   long ironMan = utilizadores.stream()
               .filter((c) -> c.getItemVoto().equals("5"))
@@ -301,11 +295,8 @@ public static List<ResultadoEleicao> listarResultadosVotacao() throws Exception 
 	   
 	   item = db.find(ItemDocument.class,"5");
 	   
-	   resultadoEleicao = new ResultadoEleicao(item.getNome(), ironMan);
-	   if(ironMan> 0) {
-		   resultadoEleicao.calculaPercentagem(quantidadeVotos);  
-	   }
-	   resultado.add(resultadoEleicao);
+	   ResultadoEleicao resultadoEleicaoIronMan = new ResultadoEleicao(item.getNome(), ironMan);
+
 	   
 	   long darkWorld = utilizadores.stream()
               .filter((c) -> c.getItemVoto().equals("6"))
@@ -315,17 +306,47 @@ public static List<ResultadoEleicao> listarResultadosVotacao() throws Exception 
 	   
 	   item = db.find(ItemDocument.class,"6");
 	   
-	   resultadoEleicao = new ResultadoEleicao(item.getNome(), darkWorld);
-	   if(darkWorld> 0) {
-		   resultadoEleicao.calculaPercentagem(quantidadeVotos);  
+	   ResultadoEleicao resultadoEleicaoDarkWorld = new ResultadoEleicao(item.getNome(), darkWorld);
+
+	   
+	   
+	   
+	   
+	   
+	   if(antMan> 0) {
+		   resultadoEleicaoAntMan.calculaPercentagem(quantidadeVotos);  
 	   }
-	   resultado.add(resultadoEleicao);
+	   if(avengers> 0) {
+		   resultadoEleicaoAvengers.calculaPercentagem(quantidadeVotos);  
+	   }
+	   if(capitanAmerica> 0) {
+		   resultadoEleicaoCapitanAmerica.calculaPercentagem(quantidadeVotos);  
+	   }
+	   if(guardiansGalaxy> 0) {
+		   resultadoEleicaoGuardiansGalaxy.calculaPercentagem(quantidadeVotos);  
+	   }
+	   if(ironMan> 0) {
+		   resultadoEleicaoIronMan.calculaPercentagem(quantidadeVotos);  
+	   }
+	   if(darkWorld> 0) {
+		   resultadoEleicaoDarkWorld.calculaPercentagem(quantidadeVotos);  
+	   }
+
+	   resultado.add(resultadoEleicaoAntMan);
+	   resultado.add(resultadoEleicaoAvengers);	
+	   resultado.add(resultadoEleicaoCapitanAmerica);
+	   resultado.add(resultadoEleicaoGuardiansGalaxy);
+	   resultado.add(resultadoEleicaoIronMan);
+	   resultado.add(resultadoEleicaoDarkWorld);
+	   
 	   
 	   List<ResultadoEleicao> listaResultadoEleicao =
 			   resultado.stream()
                        .sorted(Comparator.comparing(ResultadoEleicao::getVotos).reversed())
                        .collect(Collectors.toList());
 	 
+	   
+	
 	return listaResultadoEleicao;
 }
 

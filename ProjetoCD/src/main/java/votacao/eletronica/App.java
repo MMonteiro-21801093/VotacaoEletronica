@@ -33,7 +33,7 @@ public class App {
     	// Working with data
 
     	// Create a new database.
-    	// client.createDB("votacao_db");
+         client.createDB("votacao_db");
 
     	// Get a Database instance to interact with, but don't create it if it doesn't already exist
     	Database db = client.database("votacao_db", false);
